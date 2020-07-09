@@ -62,7 +62,12 @@ public class LookBackServiceImpl implements LookBackService {
 
         Set<String> eobProviderNPIs = extractPractionerNPIs(explanationOfBenefit);
 
-        logger.info("looking for claims at {}, {}, {}, {}, {}", billingPeriod.get(), providerID.get(), eobOrganizationID.get(), eobProviderNPIs, organizationID.get());
+        try {
+            logger.info("looking for claims at {}, {}, {}, {}, {}", billingPeriod.get(), providerID.get(), eobOrganizationID.get(), eobProviderNPIs, organizationID.get());
+        } catch (Exception e) {
+            //nothing
+        }
+
         return billingPeriod.isPresent()
                 && providerID.isPresent()
                 && organizationID.isPresent() && eobOrganizationID.isPresent()
