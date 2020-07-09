@@ -21,7 +21,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -137,6 +140,11 @@ public class DataService {
                 .forEach(batchFile -> {
                     Path path = Paths.get(String.format("%s/%s.ndjson", exportPath, batchFile.getFileName()));
                     Class<? extends Resource> typeClass = getClassForResourceType(batchFile.getResourceType());
+                    try {
+                        Thread.sleep(5000);
+                    } catch(Exception e) {
+                        //nothing
+                    }
                     addResourceEntries(typeClass, path, bundle);
                 });
 
