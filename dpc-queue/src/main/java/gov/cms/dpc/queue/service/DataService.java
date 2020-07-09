@@ -139,13 +139,9 @@ public class DataService {
                 .filter(bf -> resourceTypes.contains(bf.getResourceType()))
                 .forEach(batchFile -> {
                     Path path = Paths.get(String.format("%s/%s.ndjson", exportPath, batchFile.getFileName()));
-                    LOGGER.info("Looking at path: {}", path.toString());
+                    LOGGER.error("About to process batch file");
+                    LOGGER.error("Looking at path: {}", path.toString());
                     Class<? extends Resource> typeClass = getClassForResourceType(batchFile.getResourceType());
-                    try {
-                        Thread.sleep(5000);
-                    } catch(Exception e) {
-                        //nothing
-                    }
                     addResourceEntries(typeClass, path, bundle);
                 });
 
