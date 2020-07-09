@@ -84,7 +84,7 @@ class ResourceWriter {
             boolean isStartOfFile = batch.size() == file.getCount();
             Boolean shouldAppendToFile = !isStartOfFile;
 
-            logger.debug("Start writing to {}", outputPath);
+            logger.info("Start writing to {}", outputPath);
             for (var resource: batch) {
                 final String str = jsonParser.encodeResourceToString(resource);
                 writer.write(str.getBytes(StandardCharsets.UTF_8));
@@ -93,7 +93,7 @@ class ResourceWriter {
             writer.flush();
             writer.close();
             writeToFile(byteStream.toByteArray(), outputPath, shouldAppendToFile);
-            logger.debug("Finished writing to '{}'", outputPath);
+            logger.info("Finished writing to '{}'", outputPath);
 
             return file;
         } catch(IOException ex) {
