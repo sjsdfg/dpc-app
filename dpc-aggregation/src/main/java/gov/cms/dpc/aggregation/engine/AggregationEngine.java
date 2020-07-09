@@ -11,6 +11,7 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.UndeliverableException;
 import io.reactivex.plugins.RxJavaPlugins;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.hl7.fhir.dstu3.model.ExplanationOfBenefit;
 import org.hl7.fhir.dstu3.model.Resource;
@@ -151,7 +152,7 @@ public class AggregationEngine implements Runnable {
     protected void processJobBatch(JobQueueBatch job) {
         try {
             logger.info("Processing job {} batch {}, exporting to: {}.", job.getJobID(), job.getBatchID(), this.operationsConfig.getExportPath());
-            logger.debug("Has {} attributed beneficiaries", job.getPatients().size());
+            logger.info("Has {} attributed beneficiaries", job.getPatients().size());
 
             Optional<String> nextPatientID = job.fetchNextPatient(aggregatorID);
             while (nextPatientID.isPresent()) {
@@ -181,8 +182,10 @@ public class AggregationEngine implements Runnable {
 
     private Optional<String> processPatient(JobQueueBatch job, String patientId) {
         if (isValidLookBack(job, patientId)) {
+            logger.info("Finished lookback");
             jobBatchProcessor.processJobBatchPartial(aggregatorID, queue, job, patientId);
         }
+        logger.info("processed patient");
         // Stop processing when no patients or early shutdown
         return this.isRunning() ? job.fetchNextPatient(aggregatorID) : Optional.empty();
     }
@@ -192,6 +195,7 @@ public class AggregationEngine implements Runnable {
         //job.getProviderID is really not providerID, it is the rosterID, see createJob in GroupResource export for confirmation
         //patientId here is the patient MBI
         final String providerNPI = lookBackService.getProviderNPIFromRoster(job.getOrgID(), job.getProviderID(), patientId);
+        logger.info("Found providerNPI {}", StringUtils.isNotBlank(providerNPI));
         if (providerNPI != null) {
             Pair<Flowable<List<Resource>>, ResourceType> pair = jobBatchProcessor.fetchResource(job, patientId, ResourceType.ExplanationOfBenefit, null);
             Boolean hasClaims = pair.getLeft()

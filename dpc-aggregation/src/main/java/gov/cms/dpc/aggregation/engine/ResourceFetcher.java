@@ -66,7 +66,7 @@ class ResourceFetcher {
     Flowable<List<Resource>> fetchResources(String mbi) {
         return Flowable.fromCallable(() -> {
             String fetchId = UUID.randomUUID().toString();
-            logger.debug("Fetching first {} from BlueButton for {}", resourceType.toString(), fetchId);
+            logger.info("Fetching first {} from BlueButton for {}", resourceType.toString(), fetchId);
             final Bundle firstFetched = fetchFirst(mbi);
             return fetchAllBundles(firstFetched, fetchId);
         })

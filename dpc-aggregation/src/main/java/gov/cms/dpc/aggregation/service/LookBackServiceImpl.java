@@ -11,6 +11,8 @@ import org.hl7.fhir.dstu3.model.ExplanationOfBenefit;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.Period;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.time.YearMonth;
@@ -20,6 +22,7 @@ import java.util.*;
 
 public class LookBackServiceImpl implements LookBackService {
 
+    private final static Logger logger = LoggerFactory.getLogger(LookBackService.class);
     private final RosterDAO rosterDAO;
     private final OrganizationDAO organizationDAO;
     private final OperationsConfig operationsConfig;
@@ -34,6 +37,7 @@ public class LookBackServiceImpl implements LookBackService {
     @Override
     @UnitOfWork(readOnly = true)
     public String getProviderNPIFromRoster(UUID orgUUID, String providerOrRosterID, String patientMBI) {
+        logger.info("looking up provider npi");
         //Expect only one roster for the parameters, otherwise return null
         return Try.of(() -> rosterDAO.retrieveProviderNPIFromRoster(orgUUID, UUID.fromString(providerOrRosterID), patientMBI)).getOrNull();
     }
@@ -41,6 +45,7 @@ public class LookBackServiceImpl implements LookBackService {
     @Override
     @UnitOfWork(readOnly = true)
     public boolean hasClaimWithin(ExplanationOfBenefit explanationOfBenefit, UUID organizationUUID, String providerUUID, long withinMonth) {
+        logger.info("checking claim");
         Optional<Date> billingPeriod = Optional.ofNullable(explanationOfBenefit)
                 .map(ExplanationOfBenefit::getBillablePeriod)
                 .map(Period::getEnd);
@@ -57,6 +62,7 @@ public class LookBackServiceImpl implements LookBackService {
 
         Set<String> eobProviderNPIs = extractPractionerNPIs(explanationOfBenefit);
 
+        logger.info("looking for claims at {}, {}, {}, {}, {}", billingPeriod.get(), providerID.get(), eobOrganizationID.get(), eobProviderNPIs, organizationID.get());
         return billingPeriod.isPresent()
                 && providerID.isPresent()
                 && organizationID.isPresent() && eobOrganizationID.isPresent()
