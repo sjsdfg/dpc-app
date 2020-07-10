@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -140,6 +141,11 @@ public class DataService {
                 .forEach(batchFile -> {
                     try {
                         Path path = Paths.get(String.format("%s/%s.ndjson", exportPath, batchFile.getFileName()));
+                        Files.list(new File(exportPath).toPath())
+                                .limit(10)
+                                .forEach(p -> {
+                                    LOGGER.error("File in tmp dir {}", p);
+                                });
                         LOGGER.error("About to process batch file");
                         LOGGER.error("Looking at path: {}", path.toString());
                         Class<? extends Resource> typeClass = getClassForResourceType(batchFile.getResourceType());
