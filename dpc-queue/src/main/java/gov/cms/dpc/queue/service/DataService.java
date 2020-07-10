@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DataService {
 
@@ -141,11 +142,10 @@ public class DataService {
                 .forEach(batchFile -> {
                     try {
                         Path path = Paths.get(String.format("%s/%s.ndjson", exportPath, batchFile.getFileName()));
-                        Files.list(new File(exportPath).toPath())
-                                .limit(10)
-                                .forEach(p -> {
-                                    LOGGER.error("File in tmp dir {}", p);
-                                });
+                        try (Stream<Path> streams = Files.list(new File(exportPath).toPath())) {
+                            streams.limit(10)
+                                    .forEach(p -> LOGGER.error("File in tmp dir {}", p));
+                        }
                         LOGGER.error("About to process batch file");
                         LOGGER.error("Looking at path: {}", path.toString());
                         Class<? extends Resource> typeClass = getClassForResourceType(batchFile.getResourceType());
