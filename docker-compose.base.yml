@@ -3,6 +3,8 @@ version: '3'
 services:
   base:
     image: dpc-base:latest
+    volumes:
+      - /tmp:/tmp
     build:
       context: .
       dockerfile: docker/Dockerfiles/Dockerfile.base
