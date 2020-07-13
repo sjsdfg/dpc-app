@@ -35,6 +35,12 @@ start-app: secure-envs
 	@docker-compose up start_api_dependencies
 	@docker-compose up start_api
 
+.PHONY: start-app-local-bfd
+start-app-bfd: secure-envs-bfd
+	@docker-compose up start_core_dependencies
+	@docker-compose up start_api_dependencies
+	@docker-compose up start_api
+
 .PHONY: ci-app
 ci-app: docker-base secure-envs
 	@./dpc-test.sh
@@ -71,3 +77,8 @@ docker-base:
 secure-envs:
 	@bash ops/scripts/secrets --decrypt ops/config/encrypted/bb.keystore | tail -n +2 > bbcerts/bb.keystore
 	@bash ops/scripts/secrets --decrypt ops/config/encrypted/local.env | tail -n +2 > ops/config/decrypted/local.env
+
+.PHONY: secure-envs-bfd
+secure-envs-bfd:
+	@bash ops/scripts/secrets --decrypt ops/config/encrypted/local-bfd.jks | tail -n +2 > bbcerts/bb.keystore
+	@bash ops/scripts/secrets --decrypt ops/config/encrypted/local-bfd.env | tail -n +2 > ops/config/decrypted/local.env
