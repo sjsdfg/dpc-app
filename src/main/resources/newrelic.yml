@@ -3,6 +3,7 @@ common: &default_settings
   app_name: Data at the Point of Care
   enable_auto_app_naming: false
   enable_auto_transaction_naming: true
+  log_format: json
   log_level: info
   audit_mode: false
   log_file_count: 1
