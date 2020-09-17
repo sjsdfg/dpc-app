@@ -8,6 +8,7 @@ import gov.cms.dpc.attribution.AttributionTestHelpers;
 import gov.cms.dpc.attribution.resources.v1.GroupResource;
 import gov.cms.dpc.common.utils.SeedProcessor;
 import gov.cms.dpc.fhir.FHIRExtractors;
+import gov.cms.dpc.testing.IntegrationTest;
 import org.hl7.fhir.dstu3.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import static gov.cms.dpc.attribution.AttributionTestHelpers.DEFAULT_ORG_ID;
 import static org.junit.jupiter.api.Assertions.*;
 
+@IntegrationTest
 public class GroupResourceTest extends AbstractAttributionTest {
 
     private IGenericClient client;
@@ -149,6 +151,7 @@ public class GroupResourceTest extends AbstractAttributionTest {
         final Practitioner practitioner1 = AttributionTestHelpers.createPractitionerResource("1111111112");
         final Group group1 = SeedProcessor.createBaseAttributionGroup(FHIRExtractors.getProviderNPI(practitioner1), DEFAULT_ORG_ID);
 
+        assertFalse(GroupResource.rosterSizeTooBig(-1, group1));
         assertFalse(GroupResource.rosterSizeTooBig(null, group1));
         assertFalse(GroupResource.rosterSizeTooBig(1, (Group) null));
         assertFalse(GroupResource.rosterSizeTooBig(1, group1, null));

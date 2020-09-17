@@ -58,6 +58,11 @@ smoke/remote: venv smoke
 	@echo "Running Smoke Tests against ${HOST_URL}"
 	. venv/bin/activate; bzt src/test/remote.smoke_test.yml
 
+.PHONY: smoke/prod
+smoke/prod: venv smoke
+	@echo "Running Smoke Tests against ${HOST_URL}"
+	. venv/bin/activate; bzt src/test/prod.smoke_test.yml
+
 .PHONY: docker-base
 docker-base:
 	@docker-compose -f ./docker-compose.base.yml build base
@@ -66,3 +71,14 @@ docker-base:
 secure-envs:
 	@bash ops/scripts/secrets --decrypt ops/config/encrypted/bb.keystore | tail -n +2 > bbcerts/bb.keystore
 	@bash ops/scripts/secrets --decrypt ops/config/encrypted/local.env | tail -n +2 > ops/config/decrypted/local.env
+
+.PHONY: maven-config
+maven-config:
+	@mkdir -p ./.mvn
+	@: > ./.mvn/maven.config
+	@while read line;do echo "-D$${line} " >> ./.mvn/maven.config;done < ./ops/config/decrypted/local.env
+
+.PHONE: unit-tests
+unit-tests:
+	@bash ./dpc-unit-test.sh
+

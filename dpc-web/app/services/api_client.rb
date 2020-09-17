@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class APIClient
-  attr_reader :api_env, :base_url, :response_body, :response_status
+  attr_reader :base_url, :response_body, :response_status
 
-  def initialize(api_env)
-    @api_env = api_env
-    @base_url = base_urls[api_env]
+  def initialize
+    @base_url = ENV.fetch('API_METADATA_URL')
   end
 
   def create_organization(org, fhir_endpoint: {})
@@ -27,16 +26,6 @@ class APIClient
     self
   end
 
-  def delete_organization(reg_org)
-    fhir_client.additional_headers = auth_header(golden_macaroon)
-
-    response = fhir_client.destroy(FHIR::Organization, reg_org.api_id)
-
-    @response_status = response.response[:code].to_i
-    @response_body = response.response[:body].body
-    self
-  end
-
   def update_endpoint(reg_org)
     fhir_endpoint = FhirResourceBuilder.new.fhir_endpoint(reg_org)
     fhir_client_update_request(reg_org.api_id, fhir_endpoint, fhir_endpoint.id)
@@ -51,6 +40,12 @@ class APIClient
     post_request(uri_string, json, headers(macaroon))
 
     self
+  end
+
+  def delete_client_token(reg_org_api_id, token_id)
+    uri_string = base_url + '/Token/' + token_id
+
+    delete_request(uri_string, delegated_macaroon(reg_org_api_id))
   end
 
   def get_client_tokens(reg_org_api_id)
@@ -82,7 +77,7 @@ class APIClient
   end
 
   def response_successful?
-    @response_status == 200
+    (200...299).cover? @response_status
   end
 
   def fhir_client
@@ -90,12 +85,6 @@ class APIClient
   end
 
   private
-
-  def base_urls
-    {
-      'sandbox' => ENV.fetch('API_METADATA_URL_SANDBOX')
-    }
-  end
 
   def auth_header(token)
     { 'Authorization': "Bearer #{token}" }
@@ -110,11 +99,20 @@ class APIClient
   end
 
   def golden_macaroon
-    @golden_macaroon ||= ENV.fetch("GOLDEN_MACAROON_#{api_env.upcase}")
+    @golden_macaroon ||= ENV.fetch('GOLDEN_MACAROON')
   end
 
   def parsed_response(response)
+    return self if response.body.blank?
+
     JSON.parse response.body
+  end
+
+  def delete_request(uri_string, token)
+    uri = URI.parse uri_string
+    request = Net::HTTP::Delete.new(uri.request_uri, headers(token))
+
+    http_request(request, uri)
   end
 
   def get_request(uri_string, token)

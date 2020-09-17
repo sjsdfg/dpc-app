@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.typesafe.config.ConfigFactory;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import gov.cms.dpc.api.exceptions.JsonParseExceptionMapper;
+import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.configuration.DPCFHIRConfiguration;
 import gov.cms.dpc.fhir.dropwizard.handlers.BundleHandler;
 import gov.cms.dpc.fhir.dropwizard.handlers.FHIRHandler;
@@ -20,6 +21,7 @@ import gov.cms.dpc.fhir.validations.DPCProfileSupport;
 import gov.cms.dpc.fhir.validations.ProfileValidator;
 import gov.cms.dpc.fhir.validations.dropwizard.FHIRValidatorProvider;
 import gov.cms.dpc.fhir.validations.dropwizard.InjectingConstraintValidatorFactory;
+import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.testing.DropwizardTestSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -31,15 +33,13 @@ import org.eclipse.jetty.http.HttpStatus;
 import org.glassfish.jersey.test.grizzly.GrizzlyWebTestContainerFactory;
 import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
 import org.hl7.fhir.dstu3.hapi.validation.ValidationSupportChain;
-import org.hl7.fhir.dstu3.model.Organization;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Patient;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.dstu3.model.*;
 
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -134,7 +134,8 @@ public class APITestHelpers {
                 .addProvider(PersistenceExceptionHandler.class)
                 .addProvider(HAPIExceptionHandler.class)
                 .addProvider(DefaultFHIRExceptionHandler.class)
-                .addProvider(JsonParseExceptionMapper.class);
+                .addProvider(JsonParseExceptionMapper.class)
+                .addProvider(new AuthValueFactoryProvider.Binder<>(OrganizationPrincipal.class));
 
         // Optionally enable validation
         if (validation) {
@@ -199,4 +200,33 @@ public class APITestHelpers {
                 .configure().constraintValidatorFactory(factory)
                 .buildValidatorFactory().getValidator();
     }
+
+    public static Practitioner createPractitionerResource(String npi, String orgID) {
+        final Practitioner practitioner = new Practitioner();
+        practitioner.addIdentifier().setValue(npi).setSystem(DPCIdentifierSystem.NPPES.getSystem());
+        practitioner.addName()
+                .setFamily("Practitioner").addGiven("Test");
+
+        // Meta data which includes the Org we're using
+        final Meta meta = new Meta();
+        meta.addTag(DPCIdentifierSystem.DPC.getSystem(), orgID, "OrganizationID");
+        practitioner.setMeta(meta);
+
+        return practitioner;
+    }
+
+    public static Patient createPatientResource(String mbi, String organizationID) {
+        final Patient patient = new Patient();
+        patient.addIdentifier()
+                .setSystem(DPCIdentifierSystem.MBI.getSystem())
+                .setValue(mbi);
+
+        patient.addName().setFamily("Patient").addGiven("Test");
+        patient.setBirthDate(Date.valueOf("1990-01-01"));
+        patient.setGender(Enumerations.AdministrativeGender.OTHER);
+        patient.setManagingOrganization(new Reference(new IdType("Organization", organizationID)));
+
+        return patient;
+    }
+
 }

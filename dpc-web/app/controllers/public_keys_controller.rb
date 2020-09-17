@@ -3,6 +3,7 @@
 class PublicKeysController < ApplicationController
   layout 'public-key-new'
   before_action :authenticate_user!
+  before_action :organization_enabled?, except: :download_snippet
   rescue_from ActiveRecord::RecordNotFound, with: :unauthorized
 
   def new
@@ -12,9 +13,10 @@ class PublicKeysController < ApplicationController
   def create
     @organization = current_user.organizations.find(params[:organization_id])
     return render_error('Required values missing.') if missing_params
+    return render_error('Public key cannot be over 25 characters') if public_key_length
 
-    reg_org = @organization.registered_organizations.find_by(api_env: params[:api_environment])
-    manager = PublicKeyManager.new(api_env: params[:api_environment], registered_organization: reg_org)
+    reg_org = @organization.registered_organization
+    manager = PublicKeyManager.new(registered_organization: reg_org)
 
     new_public_key = manager.create_public_key(
       public_key: params[:public_key],
@@ -23,7 +25,7 @@ class PublicKeysController < ApplicationController
     )
 
     if new_public_key[:response]
-      redirect_to dashboard_path
+      redirect_to portal_path
     else
       render_error new_public_key[:message]
     end
@@ -33,19 +35,36 @@ class PublicKeysController < ApplicationController
     send_file 'public/snippet.txt', type: 'application/zip', status: 202
   end
 
+  def organization_enabled?
+    @organization = current_user.organizations.find(params[:organization_id])
+    @reg_org = @organization.reg_org
+
+    return if @reg_org.present? && @reg_org.enabled == true
+
+    redirect_to root_path
+  end
+
   private
 
+  # :nocov:
   def render_error(msg)
     flash[:alert] = msg
     render :new
   end
+  # :nocov:
 
   def missing_params
-    params[:api_environment].blank? || params[:public_key].blank?
+    params[:public_key].blank?
   end
 
+  def public_key_length
+    params[:public_key].length <= 25
+  end
+
+  # :nocov:
   def unauthorized
     flash[:error] = 'Unauthorized'
-    redirect_to dashboard_path
+    redirect_to portal_path
   end
+  # :nocov:
 end
