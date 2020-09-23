@@ -1,4 +1,5 @@
 common: &default_settings
+  license_key: ''
   agent_enabled: true
   app_name: Data at the Point of Care
   enable_auto_app_naming: false
