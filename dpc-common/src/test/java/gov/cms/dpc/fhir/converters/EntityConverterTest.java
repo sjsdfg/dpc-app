@@ -6,8 +6,8 @@ import gov.cms.dpc.fhir.converters.exceptions.DataTranslationException;
 import gov.cms.dpc.fhir.converters.exceptions.FHIRConverterException;
 import gov.cms.dpc.fhir.converters.exceptions.MissingConverterException;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
-import org.hl7.fhir.dstu3.model.Enumerations;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.Enumerations;
+import org.hl7.fhir.r4.model.Patient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -106,7 +106,7 @@ public class EntityConverterTest {
     void testDuplicateConverters() {
         converter.addConverter(new PatientGenderConverter());
         final FHIRConverterException exception = assertThrows(FHIRConverterException.class, () -> converter.addConverter(new PatientGenderConverter()));
-        assertEquals("Existing converter for org.hl7.fhir.dstu3.model.Patient and gov.cms.dpc.fhir.converters.EntityConverterTest$PatientGenderConverter$PatientGender", exception.getMessage(), "Should have correct error message");
+        assertEquals("Existing converter for org.hl7.fhir.r4.model.Patient and gov.cms.dpc.fhir.converters.EntityConverterTest$PatientGenderConverter$PatientGender", exception.getMessage(), "Should have correct error message");
     }
 
 

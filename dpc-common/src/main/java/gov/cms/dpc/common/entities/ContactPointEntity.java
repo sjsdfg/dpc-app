@@ -2,7 +2,7 @@ package gov.cms.dpc.common.entities;
 
 import gov.cms.dpc.common.annotations.NoHtml;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.r4.model.ContactPoint;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

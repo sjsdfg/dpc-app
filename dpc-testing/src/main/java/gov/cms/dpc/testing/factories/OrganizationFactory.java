@@ -1,12 +1,12 @@
 package gov.cms.dpc.testing.factories;
 
-import org.hl7.fhir.dstu3.model.*;
-import org.hl7.fhir.dstu3.model.codesystems.EndpointConnectionType;
+import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.r4.model.codesystems.EndpointConnectionType;
 
 import java.util.List;
 
 /**
- * A small collection of helper classes for creating fake (but valid) {@link Organization} resources.
+ * A small collection of helper classes for creating fake (but valid) {@link org.hl7.fhir.r4.model.Organization} resources.
  * It's completely deterministic, but at least it makes the FHIR parser happy
  */
 public class OrganizationFactory {

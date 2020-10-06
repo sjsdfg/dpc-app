@@ -4,7 +4,7 @@ import ca.uhn.fhir.validation.FhirValidator;
 import ca.uhn.fhir.validation.ValidationOptions;
 import ca.uhn.fhir.validation.ValidationResult;
 import gov.cms.dpc.fhir.annotations.Profiled;
-import org.hl7.fhir.dstu3.model.BaseResource;
+import org.hl7.fhir.r4.model.BaseResource;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintValidator;

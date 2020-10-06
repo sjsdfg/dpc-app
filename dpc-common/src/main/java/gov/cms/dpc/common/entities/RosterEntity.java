@@ -3,9 +3,9 @@ package gov.cms.dpc.common.entities;
 import gov.cms.dpc.fhir.FHIRExtractors;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hl7.fhir.dstu3.model.Group;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.r4.model.Group;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Reference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

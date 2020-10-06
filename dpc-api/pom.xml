@@ -120,7 +120,7 @@
         </dependency>
         <dependency>
             <groupId>${hapi.fhir.groupID}</groupId>
-            <artifactId>hapi-fhir-validation-resources-dstu3</artifactId>
+            <artifactId>hapi-fhir-validation-resources-r4</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>

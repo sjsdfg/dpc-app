@@ -6,7 +6,7 @@ import ca.uhn.fhir.parser.IParser;
 import gov.cms.dpc.fhir.FHIRMediaTypes;
 import gov.cms.dpc.fhir.annotations.FHIR;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.BaseResource;
+import org.hl7.fhir.r4.model.BaseResource;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

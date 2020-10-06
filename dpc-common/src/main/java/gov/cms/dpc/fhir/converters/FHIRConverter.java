@@ -1,6 +1,6 @@
 package gov.cms.dpc.fhir.converters;
 
-import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.r4.model.Base;
 
 public interface FHIRConverter<R extends Base, C> {
 

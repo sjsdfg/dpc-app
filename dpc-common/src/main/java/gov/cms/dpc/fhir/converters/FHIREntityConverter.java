@@ -6,7 +6,7 @@ import gov.cms.dpc.fhir.converters.exceptions.DataTranslationException;
 import gov.cms.dpc.fhir.converters.exceptions.FHIRConverterException;
 import gov.cms.dpc.fhir.converters.exceptions.MissingConverterException;
 import gov.cms.dpc.fhir.helpers.ServiceLoaderHelpers;
-import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.r4.model.Base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
- * Conversion engine which handles converting between Java {@link Object} and their corresponding FHIR {@link org.hl7.fhir.dstu3.model.Resource} types.
+ * Conversion engine which handles converting between Java {@link Object} and their corresponding FHIR {@link org.hl7.fhir.r4.model.Resource} types.
  * Converters, which implement the {@link FHIRConverter} interface are loaded via the corresponding {@link ServiceLoader}.
  */
 public class FHIREntityConverter {

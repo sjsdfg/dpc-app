@@ -3,7 +3,7 @@ package gov.cms.dpc.queue;
 import gov.cms.dpc.queue.exceptions.JobQueueFailure;
 import gov.cms.dpc.queue.models.JobQueueBatch;
 import io.reactivex.Observable;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 
 import java.time.OffsetDateTime;
 import java.util.Collections;

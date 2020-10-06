@@ -18,8 +18,8 @@ import gov.cms.dpc.queue.exceptions.JobQueueFailure;
 import gov.cms.dpc.queue.models.JobQueueBatch;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
 import io.reactivex.disposables.Disposable;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.ResourceType;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,7 +53,7 @@ class AggregationEngineTest {
     private Disposable subscribe;
     private LookBackService lookBackService;
 
-    static private FhirContext fhirContext = FhirContext.forDstu3();
+    static private FhirContext fhirContext = FhirContext.forR4();
     static private MetricRegistry metricRegistry = new MetricRegistry();
     static private String exportPath;
 

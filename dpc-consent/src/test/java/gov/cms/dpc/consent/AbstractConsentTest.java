@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 public abstract class AbstractConsentTest {
     protected static final DropwizardTestSupport<DPCConsentConfiguration> APPLICATION = new DropwizardTestSupport<>(DPCConsentService.class, "ci.application.conf");
 
-    protected FhirContext ctx = FhirContext.forDstu3();
+    protected FhirContext ctx = FhirContext.forR4();
 
     @BeforeAll
     public static void initDB() throws Exception {

@@ -2,7 +2,7 @@ package gov.cms.dpc.fhir;
 
 import gov.cms.dpc.testing.BufferedLoggerHandler;
 import org.apache.commons.lang3.tuple.Pair;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 

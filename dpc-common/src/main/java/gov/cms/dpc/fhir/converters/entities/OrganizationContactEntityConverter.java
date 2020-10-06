@@ -5,10 +5,10 @@ import gov.cms.dpc.common.entities.ContactEntity;
 import gov.cms.dpc.common.entities.ContactPointEntity;
 import gov.cms.dpc.common.entities.NameEntity;
 import gov.cms.dpc.fhir.converters.*;
-import org.hl7.fhir.dstu3.model.Address;
-import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.model.HumanName;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Address;
+import org.hl7.fhir.r4.model.ContactPoint;
+import org.hl7.fhir.r4.model.HumanName;
+import org.hl7.fhir.r4.model.Organization;
 
 import java.util.List;
 import java.util.stream.Collectors;

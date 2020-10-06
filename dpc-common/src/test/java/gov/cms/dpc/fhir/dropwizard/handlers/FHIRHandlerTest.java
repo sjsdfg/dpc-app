@@ -4,9 +4,9 @@ import ca.uhn.fhir.context.FhirContext;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import org.apache.commons.io.IOUtils;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.BaseResource;
-import org.hl7.fhir.dstu3.model.Group;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.BaseResource;
+import org.hl7.fhir.r4.model.Group;
+import org.hl7.fhir.r4.model.Patient;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(DropwizardExtensionsSupport.class)
 public class FHIRHandlerTest {
 
-    private static FhirContext ctx = FhirContext.forDstu3();
+    private static FhirContext ctx = FhirContext.forR4();
     private static FHIRHandler handler = new FHIRHandler(ctx);
 
     @Nested

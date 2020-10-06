@@ -6,8 +6,8 @@ import io.dropwizard.jersey.validation.ConstraintMessage;
 import io.dropwizard.jersey.validation.JerseyViolationException;
 import org.apache.commons.lang3.tuple.Pair;
 import org.glassfish.jersey.server.model.Invocable;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.OperationOutcome;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.OperationOutcome;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;

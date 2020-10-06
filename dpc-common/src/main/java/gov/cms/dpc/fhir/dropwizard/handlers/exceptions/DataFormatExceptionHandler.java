@@ -2,8 +2,8 @@ package gov.cms.dpc.fhir.dropwizard.handlers.exceptions;
 
 import ca.uhn.fhir.parser.DataFormatException;
 import gov.cms.dpc.fhir.FHIRMediaTypes;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.OperationOutcome;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.OperationOutcome;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;

@@ -2,7 +2,7 @@ package gov.cms.dpc.fhir;
 
 import gov.cms.dpc.common.entities.PatientEntity;
 import org.apache.commons.lang3.tuple.Pair;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.instance.model.api.IBaseCoding;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ public class FHIRExtractors {
     }
 
     /**
-     * Extract the Medicare Beneficiary ID (MBI) from the given {@link org.hl7.fhir.dstu3.model.Patient} resource
+     * Extract the Medicare Beneficiary ID (MBI) from the given {@link org.hl7.fhir.r4.model.Patient} resource
      *
      * @param patient - {@link Patient} provider to get MBI from
      * @return - {@link String} patient MBI
@@ -58,7 +58,7 @@ public class FHIRExtractors {
     }
 
     /**
-     * Extract the CCW Beneficiary ID (bene_id) from the given {@link org.hl7.fhir.dstu3.model.Patient} resource
+     * Extract the CCW Beneficiary ID (bene_id) from the given {@link org.hl7.fhir.r4.model.Patient} resource
      *
      * @param patient - {@link Patient} provider to get bene ID from
      * @return - {@link String} patient bene ID

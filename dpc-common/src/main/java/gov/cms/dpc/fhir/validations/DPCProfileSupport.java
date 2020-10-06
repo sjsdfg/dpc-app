@@ -5,14 +5,15 @@ import ca.uhn.fhir.parser.DataFormatException;
 import ca.uhn.fhir.parser.IParser;
 import gov.cms.dpc.fhir.helpers.ServiceLoaderHelpers;
 import gov.cms.dpc.fhir.validations.profiles.IProfileLoader;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
-import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
-import org.hl7.fhir.dstu3.hapi.ctx.IValidationSupport;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.hapi.ctx.DefaultProfileValidationSupport;
+import org.hl7.fhir.r4.hapi.ctx.HapiWorkerContext;
+import org.hl7.fhir.r4.hapi.ctx.IValidationSupport;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.hl7.fhir.r4.terminologies.ValueSetExpander;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +40,7 @@ public class DPCProfileSupport implements IValidationSupport {
     }
 
     @Override
-    public ValueSet.ValueSetExpansionComponent expandValueSet(FhirContext theContext, ValueSet.ConceptSetComponent theInclude) {
+    public ValueSetExpander.ValueSetExpansionOutcome expandValueSet(FhirContext theContext, ValueSet.ConceptSetComponent theInclude) {
         return null;
     }
 
@@ -97,12 +98,19 @@ public class DPCProfileSupport implements IValidationSupport {
     }
 
     @Override
-    public LookupCodeResult lookupCode(FhirContext fhirContext, String s, String s1) {
+    public boolean isValueSetSupported(FhirContext theContext, String theValueSetUrl) {
+        // TODO
+        return false;
+    }
+
+    @Override
+    public StructureDefinition generateSnapshot(StructureDefinition structureDefinition, String s1, String s2, String s3) {
+        // TODO
         return null;
     }
 
     @Override
-    public StructureDefinition generateSnapshot(StructureDefinition structureDefinition, String s, String s1) {
+    public LookupCodeResult lookupCode(FhirContext fhirContext, String s, String s1) {
         return null;
     }
 

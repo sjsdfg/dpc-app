@@ -2,7 +2,7 @@ package gov.cms.dpc.fhir.converters.entities;
 
 import ca.uhn.fhir.context.FhirContext;
 import gov.cms.dpc.common.consent.entities.ConsentEntity;
-import org.hl7.fhir.dstu3.model.Consent;
+import org.hl7.fhir.r4.model.Consent;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -32,7 +32,7 @@ public class ConsentEntityConverterTest {
         assertEquals(TEST_DPC_URL, result.getOrganization().get(0).getReference());
         assertEquals(ConsentEntityConverter.OPT_IN_MAGIC, result.getPolicyRule());
         assertTrue(result.getPolicy().isEmpty());
-        assertDoesNotThrow(() -> FhirContext.forDstu3().newJsonParser().encodeResourceToString(result));
+        assertDoesNotThrow(() -> FhirContext.forR4().newJsonParser().encodeResourceToString(result));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ConsentEntityConverterTest {
 
         assertEquals(ConsentEntityConverter.OPT_OUT_MAGIC, result.getPolicyRule());
         assertDoesNotThrow(() -> {
-            FhirContext.forDstu3().newJsonParser().encodeResourceToString(result);
+            FhirContext.forR4().newJsonParser().encodeResourceToString(result);
         });
     }
 
@@ -56,7 +56,7 @@ public class ConsentEntityConverterTest {
 
         assertEquals("Organization/" + uuid.toString(), result.getOrganizationFirstRep().getReference());
         assertDoesNotThrow(() -> {
-            FhirContext.forDstu3().newJsonParser().encodeResourceToString(result);
+            FhirContext.forR4().newJsonParser().encodeResourceToString(result);
         });
     }
 

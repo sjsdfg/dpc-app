@@ -4,9 +4,9 @@ import ca.uhn.fhir.context.FhirContext;
 import com.google.inject.Injector;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Patient;
-import org.hl7.fhir.dstu3.model.Provenance;
-import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Provenance;
+import org.hl7.fhir.r4.model.Reference;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(BufferedLoggerHandler.class)
 class ProvenanceResourceValueFactoryTest {
 
-    private static final FhirContext ctx = FhirContext.forDstu3();
+    private static final FhirContext ctx = FhirContext.forR4();
 
     private ProvenanceResourceValueFactoryTest() {
         // Not used

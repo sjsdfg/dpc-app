@@ -1,6 +1,6 @@
 package gov.cms.dpc.queue.models;
 
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

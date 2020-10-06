@@ -4,7 +4,7 @@ import gov.cms.dpc.common.entities.OrganizationEntity;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.converters.AbstractEntityConversionTest;
 import gov.cms.dpc.fhir.converters.FHIRConverter;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

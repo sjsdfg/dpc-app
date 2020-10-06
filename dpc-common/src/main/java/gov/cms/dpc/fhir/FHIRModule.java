@@ -36,7 +36,7 @@ public class FHIRModule<T extends Configuration & IDPCFHIRConfiguration> extends
     @Provides
     @Singleton
     public FhirContext provideSTU3Context() {
-        return FhirContext.forDstu3();
+        return FhirContext.forR4();
     }
 
     @Override

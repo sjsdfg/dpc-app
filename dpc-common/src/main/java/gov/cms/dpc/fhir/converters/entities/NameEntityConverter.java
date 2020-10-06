@@ -3,8 +3,8 @@ package gov.cms.dpc.fhir.converters.entities;
 import gov.cms.dpc.common.entities.NameEntity;
 import gov.cms.dpc.fhir.converters.FHIRConverter;
 import gov.cms.dpc.fhir.converters.FHIREntityConverter;
-import org.hl7.fhir.dstu3.model.HumanName;
-import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.r4.model.HumanName;
+import org.hl7.fhir.r4.model.StringType;
 
 import java.util.List;
 

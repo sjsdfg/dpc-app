@@ -48,7 +48,7 @@ public class AggregationAppModule extends DropwizardAwareModule<DPCAggregationCo
     @Provides
     @Singleton
     public FhirContext provideSTU3Context() {
-        final var fhirContext = FhirContext.forDstu3();
+        final var fhirContext = FhirContext.forR4();
 
         // Setup the context with model scans (avoids doing this on the fetch threads and perhaps multithreaded bug)
         ContextUtils.prefetchResourceModels(fhirContext, JobQueueBatch.validResourceTypes);

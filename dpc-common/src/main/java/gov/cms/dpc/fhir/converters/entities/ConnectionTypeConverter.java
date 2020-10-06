@@ -3,7 +3,7 @@ package gov.cms.dpc.fhir.converters.entities;
 import gov.cms.dpc.common.entities.EndpointEntity;
 import gov.cms.dpc.fhir.converters.FHIRConverter;
 import gov.cms.dpc.fhir.converters.FHIREntityConverter;
-import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.r4.model.Coding;
 
 public class ConnectionTypeConverter implements FHIRConverter<Coding, EndpointEntity.ConnectionType> {
 

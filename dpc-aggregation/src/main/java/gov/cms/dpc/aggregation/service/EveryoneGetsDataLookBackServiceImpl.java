@@ -1,7 +1,7 @@
 package gov.cms.dpc.aggregation.service;
 
 import gov.cms.dpc.common.utils.NPIUtil;
-import org.hl7.fhir.dstu3.model.ExplanationOfBenefit;
+import org.hl7.fhir.r4.model.ExplanationOfBenefit;
 
 import java.util.Date;
 import java.util.List;

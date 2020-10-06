@@ -13,8 +13,8 @@ import io.dropwizard.testing.junit5.DAOTestExtension;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hl7.fhir.dstu3.model.Address;
-import org.hl7.fhir.dstu3.model.Enumerations;
+import org.hl7.fhir.r4.model.Address;
+import org.hl7.fhir.r4.model.Enumerations;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 

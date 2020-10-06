@@ -5,7 +5,7 @@ import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.FHIRExtractors;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -66,6 +66,7 @@ public class ConsentEntityConverter {
     }
 
 
+    // TODO: Return CodeableConcept
     private static String policyRule(String value) {
         String code;
         if (OPT_IN.equals(value)) {
@@ -79,6 +80,7 @@ public class ConsentEntityConverter {
         return code;
     }
 
+    // TODO: Accept CodeableConcept
     private static String policyUriToCode(String uri) {
         if (OPT_IN_MAGIC.equals(uri)) {
             return OPT_IN;

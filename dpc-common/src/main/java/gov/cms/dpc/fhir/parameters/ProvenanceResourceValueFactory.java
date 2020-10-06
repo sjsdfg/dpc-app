@@ -3,7 +3,7 @@ package gov.cms.dpc.fhir.parameters;
 import ca.uhn.fhir.context.FhirContext;
 import com.google.inject.Injector;
 import org.glassfish.hk2.api.Factory;
-import org.hl7.fhir.dstu3.model.Provenance;
+import org.hl7.fhir.r4.model.Provenance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +12,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 /**
- * {@link Factory} for extracting a {@link org.hl7.fhir.dstu3.model.Provenance} resource from a request header.
+ * {@link Factory} for extracting a {@link org.hl7.fhir.r4.model.Provenance} resource from a request header.
  */
 public class ProvenanceResourceValueFactory implements Factory<Provenance> {
 

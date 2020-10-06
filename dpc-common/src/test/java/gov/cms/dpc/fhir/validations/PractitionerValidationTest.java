@@ -6,11 +6,11 @@ import ca.uhn.fhir.validation.ValidationResult;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.validations.profiles.PractitionerProfile;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
-import org.hl7.fhir.dstu3.hapi.validation.FhirInstanceValidator;
-import org.hl7.fhir.dstu3.hapi.validation.ValidationSupportChain;
-import org.hl7.fhir.dstu3.model.Meta;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.r4.hapi.ctx.DefaultProfileValidationSupport;
+import org.hl7.fhir.r4.hapi.validation.FhirInstanceValidator;
+import org.hl7.fhir.r4.hapi.validation.ValidationSupportChain;
+import org.hl7.fhir.r4.model.Meta;
+import org.hl7.fhir.r4.model.Practitioner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +26,7 @@ public class PractitionerValidationTest {
 
     @BeforeAll
     static void setup() {
-        ctx = FhirContext.forDstu3();
+        ctx = FhirContext.forR4();
         final FhirInstanceValidator instanceValidator = new FhirInstanceValidator();
 
         fhirValidator = ctx.newValidator();

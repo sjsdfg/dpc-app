@@ -2,8 +2,8 @@ package gov.cms.dpc.common.entities;
 
 import gov.cms.dpc.common.annotations.NoHtml;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hl7.fhir.dstu3.model.Address;
-import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.r4.model.Address;
+import org.hl7.fhir.r4.model.StringType;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

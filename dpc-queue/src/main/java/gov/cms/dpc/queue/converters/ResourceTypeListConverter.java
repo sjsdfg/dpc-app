@@ -2,7 +2,7 @@ package gov.cms.dpc.queue.converters;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 
 import javax.persistence.AttributeConverter;
 import java.util.ArrayList;

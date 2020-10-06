@@ -5,7 +5,7 @@ import gov.cms.dpc.fhir.FHIRMediaTypes;
 import gov.cms.dpc.fhir.annotations.BundleReturnProperties;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -27,7 +27,7 @@ public class BundleHandlerTest {
     private static FhirContext ctx;
 
     private static ResourceExtension buildResource() {
-        ctx = FhirContext.forDstu3();
+        ctx = FhirContext.forR4();
         final FHIRHandler fhirHandler = new FHIRHandler(ctx);
         return ResourceExtension
                 .builder()

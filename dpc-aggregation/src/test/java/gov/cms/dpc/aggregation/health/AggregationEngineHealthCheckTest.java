@@ -17,7 +17,7 @@ import gov.cms.dpc.queue.IJobQueue;
 import gov.cms.dpc.queue.MemoryBatchQueue;
 import gov.cms.dpc.queue.models.JobQueueBatch;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,7 +49,7 @@ public class AggregationEngineHealthCheckTest {
     private JobBatchProcessor jobBatchProcessor;
     private LookBackServiceImpl lookBackService;
 
-    static private FhirContext fhirContext = FhirContext.forDstu3();
+    static private FhirContext fhirContext = FhirContext.forR4();
     static private MetricRegistry metricRegistry = new MetricRegistry();
     static private String exportPath;
 

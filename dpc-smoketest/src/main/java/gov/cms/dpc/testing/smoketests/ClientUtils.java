@@ -19,8 +19,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
-import org.hl7.fhir.dstu3.model.codesystems.V3RoleClass;
+import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.r4.model.codesystems.V3RoleClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +98,7 @@ public class ClientUtils {
      * @throws IOException - throws if unable to read the file
      */
     private static void createRosterSubmission(IGenericClient client, InputStream resource, Bundle providerBundle, UUID organizationID, Map<String, Reference> patientReferences) throws IOException {
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
 
         final Map<String, List<Pair<String, String>>> providerMap = SeedProcessor.extractProviderMap(resource);
         final Map<String, String> providerNPIUUIDMap = providerBundle
@@ -322,7 +322,7 @@ public class ClientUtils {
         final Provenance provenance = new Provenance();
         provenance.setRecorded(Date.from(Instant.now()));
 
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
 
         // Add an agent
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();

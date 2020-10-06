@@ -10,8 +10,8 @@ import gov.cms.dpc.fhir.configuration.DPCFHIRConfiguration.FHIRValidationConfigu
 import gov.cms.dpc.fhir.validations.DPCProfileSupport;
 import gov.cms.dpc.fhir.validations.ProfileValidator;
 import org.glassfish.jersey.server.internal.inject.ConfiguredValidator;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
-import org.hl7.fhir.dstu3.hapi.validation.ValidationSupportChain;
+import org.hl7.fhir.r4.hapi.ctx.DefaultProfileValidationSupport;
+import org.hl7.fhir.r4.hapi.validation.ValidationSupportChain;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorFactory;

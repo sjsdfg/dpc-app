@@ -1,7 +1,7 @@
 package gov.cms.dpc.common.entities;
 
-import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.ContactPoint;
+import org.hl7.fhir.r4.model.Organization;
 
 import javax.persistence.*;
 import javax.validation.Valid;

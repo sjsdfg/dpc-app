@@ -3,7 +3,7 @@ package gov.cms.dpc.fhir.converters.entities;
 import gov.cms.dpc.common.entities.ContactPointEntity;
 import gov.cms.dpc.fhir.converters.FHIRConverter;
 import gov.cms.dpc.fhir.converters.FHIREntityConverter;
-import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.r4.model.ContactPoint;
 
 public class ContactPointConverter implements FHIRConverter<ContactPoint, ContactPointEntity> {
 
