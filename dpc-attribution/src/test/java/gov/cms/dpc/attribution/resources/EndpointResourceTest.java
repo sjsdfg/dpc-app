@@ -10,9 +10,9 @@ import gov.cms.dpc.fhir.FHIRExtractors;
 import gov.cms.dpc.testing.IntegrationTest;
 import gov.cms.dpc.testing.OrganizationHelpers;
 import gov.cms.dpc.testing.factories.OrganizationFactory;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Endpoint;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Endpoint;
+import org.hl7.fhir.r4.model.Organization;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -11,8 +11,8 @@ import gov.cms.dpc.fhir.FHIRExtractors;
 import gov.cms.dpc.queue.IJobQueue;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
-import org.hl7.fhir.dstu3.model.*;
-import org.hl7.fhir.dstu3.model.codesystems.V3RoleClass;
+import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.r4.model.codesystems.V3RoleClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -78,7 +78,7 @@ public class AttestationUnitTests {
         assertEquals(1, listAppender.list.size(), "Should have a logged message");
 
         // Get the message
-        final Coding reason = provenance.getReasonFirstRep();
+        final CodeableConcept reason = provenance.getReasonFirstRep();
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
         final List<String> attributedPatients = group
@@ -87,7 +87,8 @@ public class AttestationUnitTests {
                 .map(Group.GroupMemberComponent::getEntity)
                 .map(Reference::getReference)
                 .collect(Collectors.toList());
-        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s", performer.getWhoReference().getReference(), reason.getCode(), performer.getOnBehalfOfReference().getReference(), attributedPatients);
+        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s",
+                performer.getWho().getReference(), reason.getCodingFirstRep().getCode(), performer.getOnBehalfOf().getReference(), attributedPatients);
         assertEquals(expectedMessage, listAppender.list.get(0).getFormattedMessage(), "Should have correct message");
     }
 
@@ -105,7 +106,7 @@ public class AttestationUnitTests {
         assertEquals(1, listAppender.list.size(), "Should have a logged message");
 
         // Get the message
-        final Coding reason = provenance.getReasonFirstRep();
+        final CodeableConcept reason = provenance.getReasonFirstRep();
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
         final List<String> attributedPatients = group
@@ -114,7 +115,8 @@ public class AttestationUnitTests {
                 .map(Group.GroupMemberComponent::getEntity)
                 .map(Reference::getReference)
                 .collect(Collectors.toList());
-        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s", performer.getWhoReference().getReference(), reason.getCode(), performer.getOnBehalfOfReference().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
+        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s",
+                performer.getWho().getReference(), reason.getCodingFirstRep().getCode(), performer.getOnBehalfOf().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
         assertEquals(expectedMessage, listAppender.list.get(0).getFormattedMessage(), "Should have correct message");
     }
 
@@ -134,7 +136,7 @@ public class AttestationUnitTests {
         assertEquals(1, listAppender.list.size(), "Should have a logged message");
 
         // Get the message
-        final Coding reason = provenance.getReasonFirstRep();
+        final CodeableConcept reason = provenance.getReasonFirstRep();
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
         final List<String> attributedPatients = group
@@ -143,7 +145,8 @@ public class AttestationUnitTests {
                 .map(Group.GroupMemberComponent::getEntity)
                 .map(Reference::getReference)
                 .collect(Collectors.toList());
-        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s", performer.getWhoReference().getReference(), reason.getCode(), performer.getOnBehalfOfReference().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
+        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s",
+                performer.getWho().getReference(), reason.getCodingFirstRep().getCode(), performer.getOnBehalfOf().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
         assertEquals(expectedMessage, listAppender.list.get(0).getFormattedMessage(), "Should have correct message");
     }
 
@@ -163,7 +166,7 @@ public class AttestationUnitTests {
         assertEquals(1, listAppender.list.size(), "Should have a logged message");
 
         // Get the message
-        final Coding reason = provenance.getReasonFirstRep();
+        final CodeableConcept reason = provenance.getReasonFirstRep();
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
         final List<String> attributedPatients = group
@@ -172,13 +175,14 @@ public class AttestationUnitTests {
                 .map(Group.GroupMemberComponent::getEntity)
                 .map(Reference::getReference)
                 .collect(Collectors.toList());
-        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s", performer.getWhoReference().getReference(), reason.getCode(), performer.getOnBehalfOfReference().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
+        final String expectedMessage = String.format("Organization %s is attesting a %s purpose between provider %s and patient(s) %s for roster %s",
+                performer.getWho().getReference(), reason.getCodingFirstRep().getCode(), performer.getOnBehalfOf().getReference(), attributedPatients, new IdType("Group", rosterID.toString()));
         assertEquals(expectedMessage, listAppender.list.get(0).getFormattedMessage(), "Should have correct message");
     }
 
     private Provenance createTestProvenance() {
         final Provenance provenance = new Provenance();
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();
         agent.setWho(new Reference("Organization/test"));
         agent.setOnBehalfOf(new Reference("Practitioner/test"));

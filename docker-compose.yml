@@ -61,19 +61,6 @@ services:
       - export-volume:/app/data
       - ./jacocoReport/dpc-api:/jacoco-report
 
-  consent:
-    image: ${ECR_HOST:-755619740999.dkr.ecr.us-east-1.amazonaws.com/dpc-consent}:latest
-    depends_on:
-      - db
-    environment:
-      - ENV=local
-      - JACOCO=${REPORT_COVERAGE}
-    ports:
-      - "3600:3600"
-      - "9004:9900"
-    volumes:
-      - ./jacocoReport/dpc-consent:/jacoco-report
-
   start_core_dependencies:
     image: dadarek/wait-for-dependencies
     depends_on:
@@ -92,12 +79,6 @@ services:
     depends_on:
       - api
     command: api:3002
-
-  start_consent:
-    image: dadarek/wait-for-dependencies
-    depends_on:
-      - consent
-    command: consent:3600
 
   tests:
     image: maven:3.6-jdk-11

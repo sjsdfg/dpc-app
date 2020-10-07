@@ -2,9 +2,9 @@ package gov.cms.dpc.attribution.resources;
 
 import gov.cms.dpc.fhir.annotations.FHIR;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Practitioner;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -26,7 +26,7 @@ public abstract class AbstractPractitionerResource {
      *
      * @param resourceID      - {@link UUID} resource ID to query for
      * @param providerNPI     - {@link String} NPI to use for querying Provider database
-     * @param organizationTag - {@link String} ID of {@link org.hl7.fhir.dstu3.model.Organization} making the request
+     * @param organizationTag - {@link String} ID of {@link org.hl7.fhir.r4.model.Organization} making the request
      * @return - {@link Bundle} of {@link Practitioner} resources matching search parameters
      */
     @GET
@@ -35,7 +35,7 @@ public abstract class AbstractPractitionerResource {
     /**
      * Register {@link Practitioner} with application.
      * <p>
-     * Note: No {@link org.hl7.fhir.dstu3.model.PractitionerRole} is created by this endpoint, so the {@link Practitioner} is registered with the system, but not assigned to an {@link org.hl7.fhir.dstu3.model.Organization}
+     * Note: No {@link org.hl7.fhir.r4.model.PractitionerRole} is created by this endpoint, so the {@link Practitioner} is registered with the system, but not assigned to an {@link org.hl7.fhir.r4.model.Organization}
      *
      * @param provider = {@link Practitioner}
      * @return - {@link Practitioner} with additional metadata added by application

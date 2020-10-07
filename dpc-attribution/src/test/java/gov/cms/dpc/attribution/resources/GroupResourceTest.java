@@ -9,7 +9,7 @@ import gov.cms.dpc.attribution.resources.v1.GroupResource;
 import gov.cms.dpc.common.utils.SeedProcessor;
 import gov.cms.dpc.fhir.FHIRExtractors;
 import gov.cms.dpc.testing.IntegrationTest;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

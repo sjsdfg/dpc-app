@@ -28,7 +28,7 @@ import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -425,10 +425,10 @@ public class GroupResource extends AbstractGroupResource {
             groupIDLog = String.format(" for roster %s", new IdType("Group", rosterID.toString()));
         }
 
-        final Coding reason = provenance.getReasonFirstRep();
+        final CodeableConcept reason = provenance.getReasonFirstRep();
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
-        final String practitionerUUID = performer.getOnBehalfOfReference().getReference();
+        final String practitionerUUID = performer.getOnBehalfOf().getReference();
         final List<String> attributedPatients = attributionRoster
                 .getMember()
                 .stream()
@@ -436,8 +436,8 @@ public class GroupResource extends AbstractGroupResource {
                 .map(Reference::getReference)
                 .collect(Collectors.toList());
 
-        logger.info("Organization {} is attesting a {} purpose between provider {} and patient(s) {}{}", performer.getWhoReference().getReference(),
-                reason.getCode(),
+        logger.info("Organization {} is attesting a {} purpose between provider {} and patient(s) {}{}", performer.getWho().getReference(),
+                reason.getCodingFirstRep().getCode(),
                 practitionerUUID, attributedPatients, groupIDLog);
 
         verifyHeader(practitionerUUID, attributionRoster);

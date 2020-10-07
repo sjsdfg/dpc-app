@@ -314,7 +314,7 @@ class DataResourceTest {
     private static ResourceExtension buildDataResource() {
 
         final DataResource dataResource = new DataResource(manager, queue);
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
         final AuthFilter<DPCAuthCredentials, OrganizationPrincipal> staticFilter = new StaticAuthFilter(new StaticAuthenticator());
 
         return APITestHelpers.buildResourceExtension(ctx, Collections.singletonList(dataResource),

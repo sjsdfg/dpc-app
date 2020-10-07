@@ -1,6 +1,6 @@
 package gov.cms.dpc.api.auth;
 
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 
 import java.security.Principal;
 import java.util.UUID;

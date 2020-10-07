@@ -9,8 +9,8 @@ import gov.cms.dpc.testing.BufferedLoggerHandler;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.StructureDefinition;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(BufferedLoggerHandler.class)
 class DefinitionResourceTest {
 
-    private static final FhirContext ctx = FhirContext.forDstu3();
+    private static final FhirContext ctx = FhirContext.forR4();
     private static final ResourceExtension RESOURCES = buildResources();
 
     @Test

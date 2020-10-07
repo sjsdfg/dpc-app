@@ -22,10 +22,10 @@ import io.dropwizard.hibernate.UnitOfWork;
 import io.swagger.annotations.*;
 import org.apache.commons.lang3.tuple.Pair;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Group;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Group;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

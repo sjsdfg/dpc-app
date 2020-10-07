@@ -162,7 +162,8 @@ public class DPCProfileSupport implements IValidationSupport {
     private StructureDefinition mergeDiff(FhirContext ctx, DefaultProfileValidationSupport defaultValidation, ProfileUtilities utils, StructureDefinition diffStruct) {
         final StructureDefinition baseStructure = defaultValidation.fetchStructureDefinition(ctx, diffStruct.getBaseDefinition());
         if (baseStructure != null) {
-            utils.generateSnapshot(baseStructure, diffStruct, "", "");
+            // TODO: Set URLs and profile name
+            utils.generateSnapshot(baseStructure, diffStruct, "", "", "");
         }
 
         return diffStruct;

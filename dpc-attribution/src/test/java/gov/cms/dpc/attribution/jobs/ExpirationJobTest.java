@@ -13,8 +13,8 @@ import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.testing.ConfigOverride;
 import io.dropwizard.testing.DropwizardTestSupport;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Group;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Group;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ class ExpirationJobTest {
     private static final DropwizardTestSupport<DPCAttributionConfiguration> APPLICATION = new DropwizardTestSupport<>(DPCAttributionService.class, "ci.application.conf", ConfigOverride.config("server.applicationConnectors[0].port", "3727"),
             ConfigOverride.config(KEY_PREFIX, "logging.level", "ERROR"));
     private static final String PROVIDER_ID = "2322222227";
-    private static final FhirContext ctx = FhirContext.forDstu3();
+    private static final FhirContext ctx = FhirContext.forR4();
     private Client client;
 
     @BeforeEach

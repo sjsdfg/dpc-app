@@ -15,7 +15,7 @@ import gov.cms.dpc.fhir.validations.profiles.EndpointProfile;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;

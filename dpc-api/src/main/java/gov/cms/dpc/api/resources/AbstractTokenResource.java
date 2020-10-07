@@ -29,7 +29,7 @@ public abstract class AbstractTokenResource {
     }
 
     /**
-     * Get authentication token for {@link org.hl7.fhir.dstu3.model.Organization}.
+     * Get authentication token for {@link org.hl7.fhir.r4.model.Organization}.
      * If no tokens exists, returns an empty {@link List}
      *
      * @param organizationPrincipal - {@link OrganizationPrincipal} supplied by auth handler
@@ -39,7 +39,7 @@ public abstract class AbstractTokenResource {
     public abstract CollectionResponse<TokenEntity> getOrganizationTokens(OrganizationPrincipal organizationPrincipal);
 
     /**
-     * Create authentication token for {@link org.hl7.fhir.dstu3.model.Organization}.
+     * Create authentication token for {@link org.hl7.fhir.r4.model.Organization}.
      * This token is designed to be long-lived and delegatable.
      *
      * @param principal  - {@link OrganizationPrincipal} supplied by auth handler

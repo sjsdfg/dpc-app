@@ -6,9 +6,9 @@ import gov.cms.dpc.fhir.annotations.FHIR;
 import gov.cms.dpc.fhir.annotations.Profiled;
 import gov.cms.dpc.fhir.validations.profiles.PractitionerProfile;
 import io.dropwizard.auth.Auth;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Practitioner;
 import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;
 
 import javax.validation.Valid;

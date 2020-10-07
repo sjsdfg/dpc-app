@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.ws.rs.ext.Provider;
 
 /**
- * Custom {@link ValueFactoryProvider} that lets us cleanly map between {@link org.hl7.fhir.dstu3.model.Parameters} and use specified resource types.
+ * Custom {@link ValueFactoryProvider} that lets us cleanly map between {@link org.hl7.fhir.r4.model.Parameters} and use specified resource types.
  */
 @Provider
 public class FHIRParamValueFactory implements ValueFactoryProvider {

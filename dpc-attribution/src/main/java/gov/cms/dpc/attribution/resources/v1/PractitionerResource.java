@@ -13,10 +13,10 @@ import gov.cms.dpc.fhir.converters.FHIREntityConverter;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.swagger.annotations.*;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.OperationOutcome;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.OperationOutcome;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Practitioner;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

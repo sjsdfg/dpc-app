@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableMultimap;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import gov.cms.dpc.api.resources.v1.KeyResource;
 import io.dropwizard.servlets.tasks.Task;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

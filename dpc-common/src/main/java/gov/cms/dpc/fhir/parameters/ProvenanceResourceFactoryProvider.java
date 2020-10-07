@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.ws.rs.ext.Provider;
 
 /**
- * Custom {@link ValueFactoryProvider} that lets us cleanly extract {@link org.hl7.fhir.dstu3.model.Provenance} resources from the {@link ProvenanceResourceValueFactory#PROVENANCE_HEADER}.
+ * Custom {@link ValueFactoryProvider} that lets us cleanly extract {@link org.hl7.fhir.r4.model.Provenance} resources from the {@link ProvenanceResourceValueFactory#PROVENANCE_HEADER}.
  */
 @Provider
 public class ProvenanceResourceFactoryProvider implements ValueFactoryProvider {

@@ -16,7 +16,7 @@ import gov.cms.dpc.fhir.annotations.Profiled;
 import gov.cms.dpc.fhir.validations.profiles.OrganizationProfile;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.swagger.annotations.*;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;

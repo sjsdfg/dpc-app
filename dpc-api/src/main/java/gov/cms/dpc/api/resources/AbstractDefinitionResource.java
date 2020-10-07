@@ -2,7 +2,7 @@ package gov.cms.dpc.api.resources;
 
 import gov.cms.dpc.common.annotations.NoHtml;
 import gov.cms.dpc.fhir.annotations.FHIR;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -10,7 +10,7 @@ import gov.cms.dpc.macaroons.MacaroonCaveat;
 import gov.cms.dpc.macaroons.exceptions.BakeryException;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.Authenticator;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 
 import javax.annotation.Priority;
 import javax.ws.rs.Priorities;

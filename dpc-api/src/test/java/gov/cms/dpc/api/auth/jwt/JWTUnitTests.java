@@ -770,7 +770,7 @@ class JWTUnitTests {
         final DPCAuthDynamicFeature dynamicFeature = new DPCAuthDynamicFeature(factory);
 
         final TokenResource tokenResource = new TokenResource(tokenDAO, bakery, tokenPolicy, resolver, jtiCache, "localhost:3002/v1");
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
 
         return APITestHelpers.buildResourceExtension(ctx, List.of(tokenResource), List.of(dynamicFeature), false);
     }

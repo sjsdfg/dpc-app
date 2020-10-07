@@ -31,9 +31,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.eclipse.jetty.http.HttpStatus;
 import org.glassfish.jersey.test.grizzly.GrizzlyWebTestContainerFactory;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
-import org.hl7.fhir.dstu3.hapi.validation.ValidationSupportChain;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.hapi.ctx.DefaultProfileValidationSupport;
+import org.hl7.fhir.r4.hapi.validation.ValidationSupportChain;
+import org.hl7.fhir.r4.model.*;
 
 import javax.validation.Validation;
 import javax.validation.Validator;

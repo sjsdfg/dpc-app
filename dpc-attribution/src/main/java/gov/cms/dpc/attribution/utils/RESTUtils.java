@@ -1,7 +1,7 @@
 package gov.cms.dpc.attribution.utils;
 
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;

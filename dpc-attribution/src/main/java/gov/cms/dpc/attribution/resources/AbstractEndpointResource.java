@@ -1,6 +1,6 @@
 package gov.cms.dpc.attribution.resources;
 
-import org.hl7.fhir.dstu3.model.Endpoint;
+import org.hl7.fhir.r4.model.Endpoint;
 
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;

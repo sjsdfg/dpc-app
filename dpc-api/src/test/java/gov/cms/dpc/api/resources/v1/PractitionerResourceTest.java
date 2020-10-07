@@ -13,8 +13,8 @@ import gov.cms.dpc.testing.APIAuthHelpers;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.http.HttpHeaders;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Practitioner;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.HttpMethod;

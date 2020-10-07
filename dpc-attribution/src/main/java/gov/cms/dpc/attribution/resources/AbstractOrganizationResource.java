@@ -2,9 +2,9 @@ package gov.cms.dpc.attribution.resources;
 
 import gov.cms.dpc.fhir.annotations.FHIR;
 import gov.cms.dpc.fhir.annotations.FHIRParameter;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Organization;
-import org.hl7.fhir.dstu3.model.Parameters;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Organization;
+import org.hl7.fhir.r4.model.Parameters;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -26,7 +26,7 @@ public abstract class AbstractOrganizationResource {
      * Register a {@link Organization} with the API
      * <p>
      * We're currently using a {@link Bundle} resource, which allows us to include both the {@link Organization}
-     * as well as any {@link org.hl7.fhir.dstu3.model.Endpoint} resources.
+     * as well as any {@link org.hl7.fhir.r4.model.Endpoint} resources.
      * <p>
      * The {@link Bundle} is submitted as the Resource portion of the {@link Parameters} object.
      *

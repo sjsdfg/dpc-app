@@ -27,7 +27,7 @@ import gov.cms.dpc.queue.service.DataService;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;
 
 import javax.inject.Inject;
@@ -179,7 +179,7 @@ public class PatientResource extends AbstractPatientResource {
                              @ApiParam(value = "Patient resource ID", required = true) @PathParam("patientID") UUID patientId) {
 
         final Provenance.ProvenanceAgentComponent performer = FHIRExtractors.getProvenancePerformer(provenance);
-        final UUID practitionerId = FHIRExtractors.getEntityUUID(performer.getOnBehalfOfReference().getReference());
+        final UUID practitionerId = FHIRExtractors.getEntityUUID(performer.getOnBehalfOf().getReference());
         Practitioner practitioner = this.client
                 .read()
                 .resource(Practitioner.class)

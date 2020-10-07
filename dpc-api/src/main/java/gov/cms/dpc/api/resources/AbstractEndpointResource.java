@@ -5,8 +5,8 @@ import gov.cms.dpc.fhir.annotations.Profiled;
 import gov.cms.dpc.fhir.validations.profiles.EndpointProfile;
 import io.dropwizard.auth.Auth;
 import io.swagger.annotations.ApiParam;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Endpoint;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Endpoint;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

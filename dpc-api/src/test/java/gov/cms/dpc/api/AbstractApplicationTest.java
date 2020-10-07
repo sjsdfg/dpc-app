@@ -58,7 +58,7 @@ public class AbstractApplicationTest {
 
     @BeforeEach
     public void eachSetup() throws IOException {
-        ctx = FhirContext.forDstu3();
+        ctx = FhirContext.forR4();
         final IGenericClient attrClient = APITestHelpers.buildAttributionClient(ctx);
         FHIRHelpers.registerOrganization(attrClient,
                 ctx.newJsonParser(),

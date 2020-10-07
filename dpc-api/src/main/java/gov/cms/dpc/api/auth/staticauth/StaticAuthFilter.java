@@ -5,8 +5,8 @@ import gov.cms.dpc.api.auth.DPCAuthFilter;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.Authenticator;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Organization;
 import org.slf4j.MDC;
 
 import javax.annotation.Priority;

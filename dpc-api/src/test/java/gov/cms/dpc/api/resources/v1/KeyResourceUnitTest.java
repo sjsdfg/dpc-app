@@ -3,7 +3,7 @@ package gov.cms.dpc.api.resources.v1;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import gov.cms.dpc.api.entities.PublicKeyEntity;
 import gov.cms.dpc.api.jdbi.PublicKeyDAO;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

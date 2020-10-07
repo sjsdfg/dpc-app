@@ -23,7 +23,7 @@ import io.dropwizard.db.PooledDataSourceFactory;
 import io.dropwizard.setup.Environment;
 import net.sourceforge.argparse4j.inf.Namespace;
 import net.sourceforge.argparse4j.inf.Subparser;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.jooq.DSLContext;
 import org.jooq.conf.RenderQuotedNames;
 import org.jooq.conf.Settings;
@@ -84,7 +84,7 @@ public class SeedCommand extends EnvironmentCommand<DPCAttributionConfiguration>
             // Truncate everything
             DBUtils.truncateAllTables(context, "public");
 
-            final FhirContext ctx = FhirContext.forDstu3();
+            final FhirContext ctx = FhirContext.forR4();
             final IParser parser = ctx.newJsonParser();
             final FHIREntityConverter converter = FHIREntityConverter.initialize();
             // Start with the Organizations and their endpoints

@@ -8,7 +8,7 @@ import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import gov.cms.dpc.common.utils.NPIUtil;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -9,8 +9,8 @@ import gov.cms.dpc.common.annotations.NoHtml;
 import gov.cms.dpc.fhir.annotations.FHIR;
 import gov.cms.dpc.fhir.validations.DPCProfileSupport;
 import io.swagger.annotations.*;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.StructureDefinition;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

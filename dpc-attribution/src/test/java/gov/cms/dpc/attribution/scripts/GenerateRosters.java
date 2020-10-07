@@ -5,8 +5,8 @@ import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.client.api.ServerValidationModeEnum;
 import ca.uhn.fhir.rest.client.interceptor.LoggingInterceptor;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Patient;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +39,7 @@ class GenerateRosters {
             throw new IllegalStateException("APIKEY must be set");
         }
 
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
         ctx.getRestfulClientFactory().setServerValidationMode(ServerValidationModeEnum.NEVER);
         final IGenericClient client = ctx.newRestfulGenericClient(SYNTHEA_URL);
 

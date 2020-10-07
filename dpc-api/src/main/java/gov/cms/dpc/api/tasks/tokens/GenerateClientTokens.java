@@ -9,7 +9,7 @@ import gov.cms.dpc.api.entities.TokenEntity;
 import gov.cms.dpc.api.resources.v1.TokenResource;
 import gov.cms.dpc.macaroons.MacaroonBakery;
 import io.dropwizard.servlets.tasks.Task;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

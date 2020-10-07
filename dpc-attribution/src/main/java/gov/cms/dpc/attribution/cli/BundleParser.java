@@ -2,10 +2,10 @@ package gov.cms.dpc.attribution.cli;
 
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.converters.FHIRResourceConverter;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Meta;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Meta;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.ResourceType;
 
 import java.util.List;
 import java.util.UUID;

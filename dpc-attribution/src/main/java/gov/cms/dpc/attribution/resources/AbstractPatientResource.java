@@ -1,8 +1,8 @@
 package gov.cms.dpc.attribution.resources;
 
 import gov.cms.dpc.fhir.annotations.FHIR;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Patient;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;

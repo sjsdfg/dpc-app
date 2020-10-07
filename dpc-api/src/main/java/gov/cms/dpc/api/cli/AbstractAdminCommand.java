@@ -17,7 +17,7 @@ public abstract class AbstractAdminCommand extends Command {
 
     protected AbstractAdminCommand(String name, String description) {
         super(name, description);
-        this.ctx = FhirContext.forDstu3();
+        this.ctx = FhirContext.forR4();
         this.ctx.getRestfulClientFactory().setServerValidationMode(ServerValidationModeEnum.NEVER);
         this.mapper = new ObjectMapper();
     }

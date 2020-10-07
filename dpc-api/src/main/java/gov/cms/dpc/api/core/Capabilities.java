@@ -4,8 +4,8 @@ package gov.cms.dpc.api.core;
 import ca.uhn.fhir.context.FhirContext;
 import gov.cms.dpc.common.utils.PropertiesProvider;
 import gov.cms.dpc.fhir.FHIRFormatters;
-import org.hl7.fhir.dstu3.model.CapabilityStatement;
-import org.hl7.fhir.dstu3.model.DateTimeType;
+import org.hl7.fhir.r4.model.CapabilityStatement;
+import org.hl7.fhir.r4.model.DateTimeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.MissingResourceException;
 
-import static org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent;
+import static org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementSoftwareComponent;
 
 public class Capabilities {
 
@@ -60,7 +60,7 @@ public class Capabilities {
                 throw new MissingResourceException("Cannot find Capability Statement", Capabilities.class.getName(), CAP_STATEMENT);
             }
 
-            final CapabilityStatement capabilityStatement = FhirContext.forDstu3().newJsonParser().parseResource(CapabilityStatement.class, resource);
+            final CapabilityStatement capabilityStatement = FhirContext.forR4().newJsonParser().parseResource(CapabilityStatement.class, resource);
             return capabilityStatement
                     .setVersion(pp.getApplicationVersion())
                     .setSoftware(generateSoftwareComponent(releaseDate, pp.getApplicationVersion()));

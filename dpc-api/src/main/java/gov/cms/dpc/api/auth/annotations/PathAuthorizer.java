@@ -1,6 +1,6 @@
 package gov.cms.dpc.api.auth.annotations;
 
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

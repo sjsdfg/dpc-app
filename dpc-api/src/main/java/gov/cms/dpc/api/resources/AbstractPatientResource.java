@@ -7,7 +7,7 @@ import gov.cms.dpc.fhir.annotations.Profiled;
 import gov.cms.dpc.fhir.validations.profiles.AttestationProfile;
 import gov.cms.dpc.fhir.validations.profiles.PatientProfile;
 import io.dropwizard.auth.Auth;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.instance.model.api.IBaseOperationOutcome;
 
 import javax.validation.Valid;

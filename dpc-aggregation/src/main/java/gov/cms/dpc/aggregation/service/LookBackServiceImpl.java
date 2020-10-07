@@ -55,7 +55,7 @@ public class LookBackServiceImpl implements LookBackService {
         String organizationID = organizationDAO.fetchOrganizationNPI(organizationUUID).orElse(null);
 
         String eobOrganizationID = Optional.of(explanationOfBenefit)
-                .map(ExplanationOfBenefit::getOrganization)
+                .map(ExplanationOfBenefit::getProvider)
                 .map(Reference::getIdentifier)
                 .filter(i -> DPCIdentifierSystem.NPPES.getSystem().equals(i.getSystem()))
                 .map(Identifier::getValue)

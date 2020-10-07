@@ -8,8 +8,8 @@ import gov.cms.dpc.api.jdbi.TokenDAO;
 import gov.cms.dpc.macaroons.MacaroonBakery;
 import io.dropwizard.auth.Authenticator;
 import gov.cms.dpc.api.auth.DPCUnauthorizedHandler;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Organization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -22,7 +22,7 @@ import io.dropwizard.testing.junit5.ResourceExtension;
 import org.eclipse.jetty.http.HttpStatus;
 import org.glassfish.jersey.server.spi.internal.ValueFactoryProvider;
 import org.glassfish.jersey.test.grizzly.GrizzlyWebTestContainerFactory;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.instance.model.api.IBaseParameters;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

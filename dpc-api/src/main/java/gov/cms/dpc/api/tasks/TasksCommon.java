@@ -2,7 +2,7 @@ package gov.cms.dpc.api.tasks;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMultimap;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;

@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpHeaders;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.OperationOutcome;
+import org.hl7.fhir.r4.model.OperationOutcome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

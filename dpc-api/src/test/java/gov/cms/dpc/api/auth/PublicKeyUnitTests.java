@@ -123,7 +123,7 @@ class PublicKeyUnitTests {
         final PublicKeyDAO publicKeyDAO = mockKeyDAO();
         final KeyResource keyResource = new KeyResource(publicKeyDAO);
         final DPCAuthDynamicFeature dpcAuthDynamicFeature = new DPCAuthDynamicFeature(new StaticAuthFactory(new StaticAuthenticator()));
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
 
         return APITestHelpers.buildResourceExtension(ctx, List.of(keyResource), List.of(dpcAuthDynamicFeature, new AuthValueFactoryProvider.Binder<>(OrganizationPrincipal.class)), false);
     }

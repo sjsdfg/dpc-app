@@ -10,7 +10,7 @@ import gov.cms.dpc.attribution.AttributionTestHelpers;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.fhir.FHIRExtractors;
 import gov.cms.dpc.testing.OrganizationHelpers;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;

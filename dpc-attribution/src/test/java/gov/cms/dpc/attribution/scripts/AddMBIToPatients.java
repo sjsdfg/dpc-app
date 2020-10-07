@@ -2,9 +2,9 @@ package gov.cms.dpc.attribution.scripts;
 
 import ca.uhn.fhir.context.FhirContext;
 import gov.cms.dpc.fhir.FHIRExtractors;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Parameters;
-import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Patient;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ public class AddMBIToPatients {
     static final String MBI_CSV = "prod_sbx_bene_ids.csv";
 
     private static Map<String, PatientMBI> patientMap = new HashMap<>();
-    private static FhirContext ctx = FhirContext.forDstu3();
+    private static FhirContext ctx = FhirContext.forR4();
 
     @BeforeAll
     static void setup() throws IOException {

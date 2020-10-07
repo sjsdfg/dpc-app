@@ -16,8 +16,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Endpoint;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Endpoint;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;

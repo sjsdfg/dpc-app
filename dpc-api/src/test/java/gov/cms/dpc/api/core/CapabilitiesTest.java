@@ -7,7 +7,7 @@ import ca.uhn.fhir.validation.SingleValidationMessage;
 import ca.uhn.fhir.validation.ValidationResult;
 import ca.uhn.fhir.validation.schematron.SchematronBaseValidator;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
-import org.hl7.fhir.dstu3.model.CapabilityStatement;
+import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +23,7 @@ class CapabilitiesTest {
 
     @BeforeEach
     void setupValidator() {
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
 
         validator = ctx.newValidator();
 

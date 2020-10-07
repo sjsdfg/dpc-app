@@ -9,7 +9,7 @@ import ca.uhn.fhir.rest.server.exceptions.UnprocessableEntityException;
 import gov.cms.dpc.api.AbstractSecureApplicationTest;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import gov.cms.dpc.testing.APIAuthHelpers;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

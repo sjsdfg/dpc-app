@@ -5,7 +5,7 @@ import gov.cms.dpc.api.core.Capabilities;
 import gov.cms.dpc.api.resources.*;
 import gov.cms.dpc.common.utils.PropertiesProvider;
 import io.swagger.annotations.*;
-import org.hl7.fhir.dstu3.model.CapabilityStatement;
+import org.hl7.fhir.r4.model.CapabilityStatement;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

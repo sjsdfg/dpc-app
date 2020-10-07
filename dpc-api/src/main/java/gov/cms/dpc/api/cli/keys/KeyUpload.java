@@ -15,7 +15,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.IdType;
+import org.hl7.fhir.r4.model.IdType;
 
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;

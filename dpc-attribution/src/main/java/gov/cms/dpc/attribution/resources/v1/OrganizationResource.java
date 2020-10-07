@@ -14,7 +14,7 @@ import gov.cms.dpc.fhir.converters.FHIREntityConverter;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.swagger.annotations.*;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

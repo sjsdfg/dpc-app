@@ -6,8 +6,8 @@ import gov.cms.dpc.api.cli.AbstractAttributionCommand;
 import io.dropwizard.setup.Bootstrap;
 import net.sourceforge.argparse4j.inf.Namespace;
 import net.sourceforge.argparse4j.inf.Subparser;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Organization;
 
 import java.util.List;
 import java.util.stream.Collectors;

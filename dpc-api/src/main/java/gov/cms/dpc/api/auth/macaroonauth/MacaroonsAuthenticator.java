@@ -6,9 +6,9 @@ import gov.cms.dpc.api.auth.DPCAuthCredentials;
 import gov.cms.dpc.api.auth.OrganizationPrincipal;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
 import io.dropwizard.auth.Authenticator;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Organization;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Organization;
+import org.hl7.fhir.r4.model.ResourceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

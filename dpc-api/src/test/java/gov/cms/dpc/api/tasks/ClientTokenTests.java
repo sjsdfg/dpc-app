@@ -14,7 +14,7 @@ import gov.cms.dpc.api.tasks.tokens.GenerateClientTokens;
 import gov.cms.dpc.api.tasks.tokens.ListClientTokens;
 import gov.cms.dpc.macaroons.MacaroonBakery;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Organization;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

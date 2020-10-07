@@ -66,21 +66,21 @@ class AttestationValidationTest {
                 () -> assertEquals(1, result.getMessages().size(), "Should have a single message"));
 
         // Add a reason, but the wrong system
-        provenance.addReason().setSystem("http://test.local").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://test.local").setCode("TREAT");
         final ValidationResult r2 = fhirValidator.validateWithResult(provenance);
 
         assertAll(() -> assertFalse(r2.isSuccessful(), "Should not have passed"),
                 () -> assertEquals(3, r2.getMessages().size(), "Should have errors for the given reason"));
 
         // Add a reason, but the wrong value
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("wrongz");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("wrongz");
         final ValidationResult r3 = fhirValidator.validateWithResult(provenance);
 
         assertAll(() -> assertFalse(r3.isSuccessful(), "Should not have passed"),
                 () -> assertEquals(6 , r3.getMessages().size(), "Should errors for both reasons"));
 
         // Add a correct reason (which should cause everything to pass)s
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
         final ValidationResult r4 = fhirValidator.validateWithResult(provenance);
         assertTrue(r4.isSuccessful(), "Should have passed");
     }
@@ -94,7 +94,7 @@ class AttestationValidationTest {
         meta.addProfile(AttestationProfile.PROFILE_URI);
         provenance.setMeta(meta);
 //        provenance.addTarget(new Reference("Patient/test"));
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
 
         // Add an agent
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();
@@ -124,7 +124,7 @@ class AttestationValidationTest {
         meta.addProfile(AttestationProfile.PROFILE_URI);
         provenance.setMeta(meta);
 //        provenance.addTarget(new Reference("Patient/test"));
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();
         agent.setWho(new Reference("Organization/test"));
         agent.setOnBehalfOf(new Reference("Practitioner/test"));
@@ -153,7 +153,7 @@ class AttestationValidationTest {
         meta.addProfile(AttestationProfile.PROFILE_URI);
         provenance.setMeta(meta);
 //        provenance.addTarget(new Reference("Patient/test"));
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
 
         // Add an agent
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();
@@ -183,7 +183,7 @@ class AttestationValidationTest {
         meta.addProfile(AttestationProfile.PROFILE_URI);
         provenance.setMeta(meta);
 //        provenance.addTarget(new Reference("Patient/test"));
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
 
         // Add an agent
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();
@@ -227,7 +227,7 @@ class AttestationValidationTest {
         meta.addProfile(AttestationProfile.PROFILE_URI);
         provenance.setMeta(meta);
 //        provenance.addTarget(new Reference("Patient/test"));
-        provenance.addReason().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
+        provenance.addReason().addCoding().setSystem("http://hl7.org/fhir/v3/ActReason").setCode("TREAT");
 
         // Add an agent
         final Provenance.ProvenanceAgentComponent agent = new Provenance.ProvenanceAgentComponent();

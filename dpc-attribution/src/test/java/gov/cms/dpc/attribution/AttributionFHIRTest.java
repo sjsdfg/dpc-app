@@ -18,7 +18,7 @@ import gov.cms.dpc.testing.OrganizationHelpers;
 import io.dropwizard.testing.ConfigOverride;
 import io.dropwizard.testing.DropwizardTestSupport;
 import org.apache.commons.lang3.tuple.Pair;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -45,7 +45,7 @@ class AttributionFHIRTest {
     private static final String KEY_PREFIX = "dpc.attribution";
     private static final DropwizardTestSupport<DPCAttributionConfiguration> APPLICATION = new DropwizardTestSupport<>(DPCAttributionService.class, "ci.application.conf", ConfigOverride.config("server.applicationConnectors[0].port", "3727"),
             ConfigOverride.config(KEY_PREFIX, "logging.level", "ERROR"));
-    private static final FhirContext ctx = FhirContext.forDstu3();
+    private static final FhirContext ctx = FhirContext.forR4();
     private static final String CSV = "test_associations-dpr.csv";
     private static Map<String, List<Pair<String, String>>> groupedPairs = new HashMap<>();
     private static final ObjectMapper mapper = new ObjectMapper();

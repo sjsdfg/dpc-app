@@ -18,7 +18,7 @@ import io.dropwizard.auth.Auth;
 import io.swagger.annotations.*;
 import org.bouncycastle.util.encoders.Hex;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.r4.model.ResourceType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -18,9 +18,9 @@ import gov.cms.dpc.macaroons.thirdparty.MemoryThirdPartyKeyStore;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Organization;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -95,7 +95,7 @@ class AuthHandlerTest {
         final DPCAuthFactory factory = new DPCAuthFactory(bakery, new MacaroonsAuthenticator(client), sessionFactory, dpc401handler);
         final DPCAuthDynamicFeature dynamicFeature = new DPCAuthDynamicFeature(factory);
 
-        final FhirContext ctx = FhirContext.forDstu3();
+        final FhirContext ctx = FhirContext.forR4();
 
         return APITestHelpers.buildResourceExtension(ctx, List.of(mockOrganizationResource(), mockBaseResource()), List.of(dynamicFeature), false);
     }

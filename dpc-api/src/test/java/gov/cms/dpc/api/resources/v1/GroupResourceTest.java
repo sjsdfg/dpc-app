@@ -16,8 +16,8 @@ import gov.cms.dpc.testing.APIAuthHelpers;
 import gov.cms.dpc.testing.BufferedLoggerHandler;
 import org.apache.http.HttpHeaders;
 import org.eclipse.jetty.http.HttpStatus;
-import org.hl7.fhir.dstu3.model.*;
-import org.hl7.fhir.dstu3.model.codesystems.V3RoleClass;
+import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.r4.model.codesystems.V3RoleClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -105,7 +105,8 @@ public class GroupResourceTest extends AbstractSecureApplicationTest {
         final Coding coding = new Coding();
         coding.setSystem("http://hl7.org/fhir/v3/ActReason");
         coding.setCode("TREAT");
-        provenance.setReason(Collections.singletonList(coding));
+        final CodeableConcept codeableConcept = new CodeableConcept(coding);
+        provenance.setReason(Collections.singletonList(codeableConcept));
         provenance.setTarget(Collections.singletonList(patientRef));
         final Provenance.ProvenanceAgentComponent component = new Provenance.ProvenanceAgentComponent();
 
@@ -186,7 +187,8 @@ public class GroupResourceTest extends AbstractSecureApplicationTest {
         final Coding coding = new Coding();
         coding.setSystem("http://hl7.org/fhir/v3/ActReason");
         coding.setCode("<script>nope</script>");
-        provenance.setReason(Collections.singletonList(coding));
+        final CodeableConcept codeableConcept = new CodeableConcept(coding);
+        provenance.setReason(Collections.singletonList(codeableConcept));
         provenance.setTarget(Collections.singletonList(patientRef));
         final Provenance.ProvenanceAgentComponent component = new Provenance.ProvenanceAgentComponent();
 
@@ -216,7 +218,9 @@ public class GroupResourceTest extends AbstractSecureApplicationTest {
     void testCreateInvalidGroup() throws IOException, URISyntaxException {
         Provenance provenance = new Provenance();
         provenance.setRecorded(Date.valueOf(LocalDate.now()));
-        provenance.setReason(List.of(new Coding("http://hl7.org/fhir/v3/ActReason", "TREAT", null)));
+        final Coding coding = new Coding("http://hl7.org/fhir/v3/ActReason", "TREAT", null);
+        final CodeableConcept codeableConcept = new CodeableConcept(coding);
+        provenance.setReason(List.of(codeableConcept));
         String provString = ctx.newJsonParser().encodeResourceToString(provenance);
 
         URL url = new URL(getBaseURL() + "/Group");
@@ -294,7 +298,8 @@ public class GroupResourceTest extends AbstractSecureApplicationTest {
         final Coding coding = new Coding();
         coding.setSystem("http://hl7.org/fhir/v3/ActReason");
         coding.setCode("TREAT");
-        provenance.setReason(Collections.singletonList(coding));
+        final CodeableConcept codeableConcept = new CodeableConcept(coding);
+        provenance.setReason(Collections.singletonList(codeableConcept));
         provenance.setTarget(Collections.singletonList(patientRef));
         final Provenance.ProvenanceAgentComponent component = new Provenance.ProvenanceAgentComponent();
 
@@ -355,7 +360,8 @@ public class GroupResourceTest extends AbstractSecureApplicationTest {
         final Coding coding = new Coding();
         coding.setSystem("http://hl7.org/fhir/v3/ActReason");
         coding.setCode("TREAT");
-        provenance.setReason(Collections.singletonList(coding));
+        final CodeableConcept codeableConcept = new CodeableConcept(coding);
+        provenance.setReason(Collections.singletonList(codeableConcept));
         final Provenance.ProvenanceAgentComponent component = new Provenance.ProvenanceAgentComponent();
 
         final Coding roleCode = new Coding();

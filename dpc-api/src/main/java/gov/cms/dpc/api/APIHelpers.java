@@ -4,7 +4,7 @@ import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.validation.SingleValidationMessage;
 import gov.cms.dpc.bluebutton.client.BlueButtonClient;
 import gov.cms.dpc.fhir.DPCIdentifierSystem;
-import org.hl7.fhir.dstu3.model.*;
+import org.hl7.fhir.r4.model.*;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
