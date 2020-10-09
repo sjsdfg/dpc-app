@@ -19,6 +19,12 @@ module Internal
       redirect_to internal_tags_path
     end
 
+    def show
+      @tag = Tag.find id_param
+
+      render layout: 'table_index'
+    end
+
     def destroy
       @tag = Tag.find(id_param)
       if @tag.destroy

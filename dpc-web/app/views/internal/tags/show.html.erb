@@ -1,0 +1,38 @@
+<% title "Tag: #{@tag.name}" %>
+
+
+<div class="ds-l-row">
+  <div class="ds-l-row--12 ds-l-md-col--3">
+    <%= render "shared/internal/sidenav", current: :tags %>
+  </div>
+
+  <div class="ds-l-row--12 ds-l-md-col--9 ds-u-padding-bottom--2">
+
+    <h1 class="ds-h1">Tag: <%= @tag.name %> (<%= @tag.taggings.count %>)</h1>
+
+    <% if @tag.taggings.count == 0 %>
+      <div class="box">
+
+        <div class="box__content">
+          There are no organizations or users assigned this tag.
+        </div>
+      </div>
+    <% else %>
+      <h2 class="ds-h2">Organizations:</h2>
+      <div class="box">
+
+        <div class="box__content">
+        </div>
+
+      </div>
+
+      <h2 class="ds-h2">Users:</h2>
+      <div class="box">
+
+        <div class="box__content">
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>

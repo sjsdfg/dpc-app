@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       collection { get :download }
     end
     resources :taggings, only: [:create, :destroy]
-    resources :tags, only: [:index, :create, :destroy]
+    resources :tags, only: [:index, :create, :show, :destroy]
     resources :organizations do
 
       resources :registered_organizations, only: [:new, :create, :edit, :update, :destroy] do

@@ -92,3 +92,12 @@
     }
   }
 }
+
+.sidenav__tag-link {
+  text-decoration: none;
+
+  .site-pills__item--small:hover {
+    background-color: $color-primary-alt-darkest;
+    color: $color-primary-alt-lightest;
+  }
+}

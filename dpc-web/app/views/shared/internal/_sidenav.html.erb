@@ -82,5 +82,19 @@
 
   <li class="ds-c-vertical-nav__item">
     <%= link_to "Tags", internal_tags_path, class: "ds-c-vertical-nav__label #{current_sidenav_class if tags_page?}" %>
+
+    <div class="ds-u-padding--2">
+      <% if Tag.count > 0 %>
+        <% Tag.order('LOWER(name)').each do |tag| %>
+          <%= link_to internal_tag_path(tag), class: "sidenav__tag-link" do%>
+            <span class="site-pills__item site-pills__item--small">
+              <%= tag.name %>
+            </span>
+          <% end %>
+        <% end %>
+      <% else %>
+        No tags have been created.
+      <% end %>
+    </div>
   </li>
 </ul>
