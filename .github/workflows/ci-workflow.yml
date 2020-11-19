@@ -24,6 +24,7 @@ jobs:
           python-version: '3.8.1'
       - name: "API Build"
         run: |
+          docker ps -a
           make ci-app
   build-web:
     name: "Build and Test Website"
