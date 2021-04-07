@@ -434,4 +434,12 @@
             <column name="beneficiary_id" valueComputed="UPPER(beneficiary_id)"/>
         </update>
     </changeSet>
+
+    <!-- Test simple migration logic for data changes -->
+    <changeSet id="group-change" author="dhgreene">
+        <update tableName="ATTRIBUTIONS">
+            <column name="roster_id" value="95056b75-0569-48b6-8241-ef085677720d"/>
+            <where>roster_id='c9395328-de72-4709-aaef-21ee1fd24fc5'</where>
+        </update>
+    </changeSet>
 </databaseChangeLog>
