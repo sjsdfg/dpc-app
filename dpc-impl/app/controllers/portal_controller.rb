@@ -14,7 +14,15 @@ class PortalController < ApplicationController
     @user = current_user
   end
 
+  def new_client
+    @new_client = api_service
+  end
+
   private
+
+  def api_service
+    @api_service ||= ApiClient.new
+  end
 
   def current_user_imp_id
     current_user.implementer_id
