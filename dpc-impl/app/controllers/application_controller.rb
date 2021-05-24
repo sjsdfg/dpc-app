@@ -42,6 +42,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def generate_npi
+    @npi = Luhnacy.generate(15, prefix: '808403')[-10..-1]
+
+    return @npi if Luhnacy.doctor_npi?('80840' + @npi)
+
+    generate_npi
+  end
+
   def id_param
     params.require(:id)
   end

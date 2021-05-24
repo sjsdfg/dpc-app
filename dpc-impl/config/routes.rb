@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     root to: 'portal#show', as: :authenticated_root, via: :get
   end
 
+  resources :client_orgs, only: [:new, :create]
+
   match '/members', to: 'portal#index', via: :get
   match '/portal', to: 'portal#show', via: :get
-  match '/new_client', to: 'portal#new_client', via: :get
 
   devise_scope :user do
     root to: "devise/sessions#new"
