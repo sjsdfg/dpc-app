@@ -7,7 +7,7 @@ class ApiClient
     @base_url = ENV.fetch('API_METADATA_URL')
   end
 
-  def create_client_org
+  def create_client_org(npi)
     binding.pry
   end
 end

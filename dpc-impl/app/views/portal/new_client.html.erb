@@ -1,0 +1,9 @@
+<%= form_with url: '/create_client', method: :post do |f|%>
+  <div class="field">
+    <%= f.label :npi, class: "ds-c-label" %>
+    <%= f.text_field :npi, class: "ds-c-field", value: @npi %>
+  </div>
+  <div class="actions ds-u-margin-top--3">
+    <%= f.submit "Add client", class: "ds-c-button ds-c-button--primary", data: {test: "submit"} %>
+  </div>
+<% end %>

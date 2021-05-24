@@ -14,7 +14,19 @@ class PortalController < ApplicationController
     @user = current_user
   end
 
+  def new_client
+    @npi = generate_npi
+  end
+
+  def create_client
+    api_request = api_service.create_client_org(npi_param)
+  end
+
   private
+
+  def api_service
+    @api_service ||= ApiClient.new
+  end
 
   def current_user_imp_id
     current_user.implementer_id
@@ -22,6 +34,10 @@ class PortalController < ApplicationController
 
   def first_user
     User.where(implementer_id: current_user_imp_id, invitation_sent_at: nil).first
+  end
+
+  def npi_param
+    params.require(:npi)
   end
 
   def users_accepted

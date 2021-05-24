@@ -1,9 +1,0 @@
-<%= form_with url: client_orgs_path do |f| %>
-  <div class="field">
-    <%= f.label 'New Client NPI', class: "ds-c-label npi-label" %>
-    In sandbox, we provide a generated client NPI.
-    <%= f.text_field :npi, class: "ds-c-field", disabled: true, value: @npi %>
-
-    <%= f.submit "Add New Client", class: "ds-c-button ds-c-button--primary", data: {test: "add-client"} %>
-  </div>
-<% end %>
