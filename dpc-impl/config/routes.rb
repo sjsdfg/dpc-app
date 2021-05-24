@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: 'portal#show', as: :authenticated_root, via: :get
   end
 
-  resources :apis, only: [:new]
+  resources :client_orgs, only: [:new]
 
   match '/members', to: 'portal#index', via: :get
   match '/portal', to: 'portal#show', via: :get

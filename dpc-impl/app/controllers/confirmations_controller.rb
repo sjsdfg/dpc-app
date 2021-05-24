@@ -3,6 +3,7 @@
 require './lib/redis_store/mail_throttle_store'
 
 class ConfirmationsController < Devise::ConfirmationsController
+  before_action :authenticate_user!
 
   # POST /resource/confirmation
   def create
