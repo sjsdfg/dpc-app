@@ -91,7 +91,7 @@ down-v2:
 
 .PHONY: seed-db
 seed-db:
-	@java -jar dpc-attribution/target/dpc-attribution.jar db migrate && java -jar dpc-attribution/target/dpc-attribution.jar seed
+	@docker run -it --rm --network host -v `pwd`/dpc-attribution/target:/usr/src/myapp -w /usr/src/myapp openjdk:7 java -jar dpc-attribution.jar db migrate && java -jar dpc-attribution.jar seed
 
 .PHONY: ci-app
 ci-app: docker-base secure-envs
