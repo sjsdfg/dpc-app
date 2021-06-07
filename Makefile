@@ -103,7 +103,7 @@ ci-portals: secure-envs
 
 .PHONY: smoke
 smoke:
-	@mvn clean package -DskipTests -Djib.skip=True -pl dpc-smoketest -am -ntp
+	@docker-compose run tests mvn clean package -DskipTests -Djib.skip=True -pl dpc-smoketest -am -ntp
 
 .PHONY: smoke/local
 smoke/local: venv smoke
