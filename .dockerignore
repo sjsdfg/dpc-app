@@ -6,6 +6,7 @@
 
 application.local.conf
 target/
+*/target/
 dependency-reduced-*.xml
 *.db
 .settings/

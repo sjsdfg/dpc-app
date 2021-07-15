@@ -79,7 +79,7 @@ build-v2:
 	@docker-compose -f docker-compose.yml -f dpc-go/dpc-attribution/docker-compose.yml build migrator
 	@docker-compose -f docker-compose.yml -f dpc-go/dpc-attribution/docker-compose.yml build attribution2
 	@docker-compose -f dpc-go/dpc-api/docker-compose.yml build api
-	@docker-compose -f docker-compose.yml -f dpc-go/dpc-attribution/docker-compose.yml -f docker-compose.v2.yml build ssas
+	@DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml -f dpc-go/dpc-attribution/docker-compose.yml -f docker-compose.v2.yml build ssas
 
 .PHONY: start-v2
 start-v2: secure-envs
